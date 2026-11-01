@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VIO 💋 KAPZ</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;overflow:hidden;background:#100617;color:#fff;font-family:Arial,sans-serif}
+body:before{content:"";position:fixed;inset:-50%;background:conic-gradient(from 0deg,#ff2e93,#5d1b8a,#160b2a,#ff2e93);filter:blur(100px);opacity:.35;animation:bg 12s linear infinite}
+@keyframes bg{to{transform:rotate(360deg)}}
+header{position:relative;text-align:center;padding:28px 12px 12px;font-size:12px;letter-spacing:5px;color:#ffb6d8;font-weight:900}
+main{position:relative;min-height:calc(100vh - 60px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px}
+h1{font-size:clamp(52px,12vw,110px);line-height:.9;letter-spacing:-6px;margin:0 0 18px;text-shadow:0 0 18px #ff238f,0 0 55px #ff238f;animation:pulse .8s infinite alternate}
+h1 span{display:inline-block;animation:heart .6s infinite alternate}
+@keyframes pulse{to{transform:scale(1.045)}}@keyframes heart{to{transform:scale(1.5) rotate(12deg)}}
+#stage{position:relative;width:min(900px,96vw);height:48vh;min-height:260px;overflow:hidden;border:1px solid #ff8dc755;border-radius:25px;background:#ffffff08;box-shadow:0 0 60px #ff168933,inset 0 0 50px #ff168911}
+.spam{position:absolute;white-space:nowrap;font-weight:1000;font-size:clamp(22px,5vw,48px);color:#fff;text-shadow:3px 3px #ff188d,0 0 15px #ff70b5;animation:fly var(--d) linear forwards;left:110%;top:var(--y);transform:rotate(var(--r))}
+@keyframes fly{to{left:-130%;transform:translateY(var(--dy)) rotate(var(--r)) scale(var(--s));opacity:.1}}
+.controls{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+button{border:0;border-radius:50px;padding:15px 24px;font-weight:1000;font-size:15px;cursor:pointer;background:#ff3d9b;color:white;box-shadow:0 6px 0 #9e145a,0 0 25px #ff3d9b77;transition:.15s}
+button:active{transform:translateY(5px);box-shadow:0 1px 0 #9e145a}
+button.alt{background:#fff;color:#b41465;box-shadow:0 6px 0 #b7a0b5}
+#count{margin-top:15px;color:#ffb8d9;font-size:12px;letter-spacing:3px;font-weight:900}
+.float{position:fixed;pointer-events:none;z-index:5;font-size:28px;animation:burst 2.2s ease-out forwards}
+@keyframes burst{0%{transform:scale(.2) rotate(0);opacity:1}100%{transform:translate(var(--x),var(--yy)) scale(2.4) rotate(540deg);opacity:0}}
+@media(max-width:500px){#stage{height:42vh}.controls button{padding:13px 17px}}
+</style></head>
+<body>
+<header>💗 OFFICIAL SHIP BROADCAST 💗</header>
+<main>
+<h1>VIO <span>💋</span> KAPZ</h1>
+<div id="stage" aria-label="Animated Vio Kapz spam"></div>
+<div class="controls">
+<button onclick="start()">SPAMMMMM 💋</button>
+<button onclick="burst()">MORE CHAOS 💥</button>
+<button class="alt" onclick="toggle()" id="toggle">PAUSE ⏸</button>
+</div>
+<div id="count">VIO 💋 KAPZ • VIO 💋 KAPZ • VIO 💋 KAPZ</div>
+</main>
+<script>
+const stage=document.getElementById('stage');
+let running=true,total=0,timer;
+const phrases=['VIO 💋 KAPZ','VIOOOO 💋 KAPZZZ','VIO ❤️ KAPZ','VIO + KAPZ 💋','💋 VIO KAPZ 💋','VIOOOOO × KAPZZZZ','VIO 💍 KAPZ','VIO 🫦 KAPZ','VIO 💗 KAPZ','VIO 💋 KAPZ FOREVER'];
+function add(){if(!running)return;let e=document.createElement('div');e.className='spam';e.textContent=phrases[Math.floor(Math.random()*phrases.length)];e.style.setProperty('--y',Math.random()*88+'%');e.style.setProperty('--d',(2.1+Math.random()*2.4)+'s');e.style.setProperty('--r',(Math.random()*24-12)+'deg');e.style.setProperty('--dy',(Math.random()*160-80)+'px');e.style.setProperty('--s',(.7+Math.random()*1.2));stage.appendChild(e);total++;document.getElementById('count').textContent='💋 '+total.toLocaleString('en-IN')+' × VIO 💋 KAPZ';setTimeout(()=>e.remove(),4800)}
+function start(){running=true;clearInterval(timer);for(let i=0;i<18;i++)setTimeout(add,i*65);timer=setInterval(add,100)}
+function burst(){for(let i=0;i<55;i++){let e=document.createElement('div');e.className='float';e.textContent=['💋','💗','💕','😘','❤️'][Math.floor(Math.random()*5)];e.style.left=Math.random()*100+'vw';e.style.top=Math.random()*100+'vh';e.style.setProperty('--x',(Math.random()*400-200)+'px');e.style.setProperty('--yy',(Math.random()*400-200)+'px');document.body.appendChild(e);setTimeout(()=>e.remove(),2300)}start()}
+function toggle(){running=!running;document.getElementById('toggle').textContent=running?'PAUSE ⏸':'RESUME ▶';if(running)start();else clearInterval(timer)}
+start();
+</script></body></html>
